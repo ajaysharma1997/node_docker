@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-let userGoal = 'Learn Docker!';
+let userGoal = '';
+let blessing = '';
+let by = '';
 
 app.use(
   bodyParser.urlencoded({
@@ -21,12 +23,14 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <section>
-          <h2>For the Special Person</h2>
-          <h3 style="color: red">Happy 1st Engagement Anniversary ${userGoal}</h3>
+          <h2>Congratulations!!</h2>
+          <h3 style="color: red"${userGoal}.</h3>
+          <h4 style="color: green"${blessing}.</h4>
+          <h5 style="color: blue"${by}.</h4>
         </section>
         <form action="/store-goal" method="POST">
           <div class="form-control">
-            <label>Course Goal</label>
+            <label>Special person</label>
             <input type="text" name="goal">
           </div>
           <button>Go</button>
@@ -40,8 +44,14 @@ app.post('/store-goal', (req, res) => {
   const enteredGoal = req.body.goal;
   console.log(enteredGoal);
   userGoal = enteredGoal;
-  if(userGoal !== 'Kirti') {
+  if(userGoal === 'Kirti' || userGoal === 'kirti' || userGoal === 'Ajay' || userGoal === 'ajay') {
+    userGoal = 'Happy 1st Engagement Anniversary Kirti.';
+    blessing = 'Bhagwaan Tumhe hamesha khush rakhe. Enjoy your day 🎉';
+    by = 'By: Pandit Ajay Sharma';
+  } else {
     userGoal = '';
+    blessing = '';
+    by = '';
   }
   res.redirect('/');
 });
