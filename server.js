@@ -21,15 +21,15 @@ app.get('/', (req, res) => {
       </head>
       <body>
         <section>
-          <h2>My Course Goal</h2>
-          <h3>${userGoal}</h3>
+          <h2>For the Special Person</h2>
+          <h3 style="color: red">Happy 1st Engagement Anniversary ${userGoal}</h3>
         </section>
         <form action="/store-goal" method="POST">
           <div class="form-control">
             <label>Course Goal</label>
             <input type="text" name="goal">
           </div>
-          <button>Set Course Goal</button>
+          <button>Go</button>
         </form>
       </body>
     </html>
@@ -40,6 +40,9 @@ app.post('/store-goal', (req, res) => {
   const enteredGoal = req.body.goal;
   console.log(enteredGoal);
   userGoal = enteredGoal;
+  if(userGoal !== 'Kirti') {
+    userGoal = '';
+  }
   res.redirect('/');
 });
 
