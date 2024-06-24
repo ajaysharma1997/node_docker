@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 let userGoal = '';
+let message = '';
 let blessing = '';
 let by = '';
 
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
       <body>
         <section>
           <h2>Congratulations!!</h2>
-          <h3 style="color: red"${userGoal}.</h3>
+          <h3 style="color: red"${message}.</h3>
           <h4 style="color: green"${blessing}.</h4>
           <h5 style="color: blue"${by}.</h4>
         </section>
@@ -43,12 +44,13 @@ app.get('/', (req, res) => {
 app.post('/store-goal', (req, res) => {
   const enteredGoal = req.body.goal;
   console.log(enteredGoal);
-  if(enteredGoal === 'Kirti' || enteredGoal === 'kirti' || enteredGoal === 'Ajay' || enteredGoal === 'ajay') {
-    userGoal = 'Happy 1st Engagement Anniversary Kirti.';
+  userGoal = enteredGoal;
+  if(userGoal === 'Kirti' || userGoal === 'kirti' || userGoal === 'Ajay' || userGoal === 'ajay') {
+    message = 'Happy 1st Engagement Anniversary Kirti.';
     blessing = 'Bhagwaan Tumhe hamesha khush rakhe. Enjoy your day 🎉';
     by = 'By: Pandit Ajay Sharma';
   } else {
-    userGoal = '';
+    message = '';
     blessing = '';
     by = '';
   }
