@@ -43,8 +43,7 @@ app.get('/', (req, res) => {
 app.post('/store-goal', (req, res) => {
   const enteredGoal = req.body.goal;
   console.log(enteredGoal);
-  userGoal = enteredGoal;
-  if(userGoal === 'Kirti' || userGoal === 'kirti' || userGoal === 'Ajay' || userGoal === 'ajay') {
+  if(enteredGoal === 'Kirti' || enteredGoal === 'kirti' || enteredGoal === 'Ajay' || enteredGoal === 'ajay') {
     userGoal = 'Happy 1st Engagement Anniversary Kirti.';
     blessing = 'Bhagwaan Tumhe hamesha khush rakhe. Enjoy your day 🎉';
     by = 'By: Pandit Ajay Sharma';
