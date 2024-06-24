@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
       <body>
         <section>
           <h2>Congratulations!!</h2>
-          <h3 style="color: red"${message}.</h3>
-          <h4 style="color: green"${blessing}.</h4>
-          <h5 style="color: blue"${by}.</h4>
+          <h3 style="color: red">${message}.</h3>
+          <h4 style="color: green">${blessing}.</h4>
+          <h5 style="color: blue">${by}.</h4>
         </section>
         <form action="/store-goal" method="POST">
           <div class="form-control">
